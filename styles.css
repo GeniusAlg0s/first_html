@@ -9,3 +9,14 @@ body {
   background-color: #7faaaf; /*bright red*/
   font-weight: lighter;
 }
+nav {
+  display: flex;
+  position: sticky;
+  top: 0px;
+  background-color: darkgray;
+  justify-content: space-around;
+  z-index: 110;
+}
+a {
+  text-decoration: none;
+}
