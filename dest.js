@@ -42,7 +42,9 @@ function handleSum(evt) {
   ${pic}
   <p>you chose ${destination} - located in ${location}</p>
   <p>${description}</p>
-  <button>edit</button><span><button>remove</button>
+  <div id="inner">
+  <button id="edit" class="btn btn-warning">edit</button><span><button id="edit" class="btn btn-danger">remove</button>
+  </div>
   </div>
   `;
   contains.appendChild(myDiv);
