@@ -27,50 +27,60 @@
         below to add them to your wishlist
       </p>
     </div>
-    <form>
-      <div class="left">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label"
-            >Destination name</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Location</label>
-          <div claas="move">
+    <div>
+      <form id="info">
+        <div class="left">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"
+              >Destination name</label
+            >
             <input
               type="text"
               class="form-control"
-              id="exampleInputPassword1"
+              id="dest"
+              required
+              placeholder="Destination"
             />
           </div>
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Photo</label>
-          <div claas="move">
-            <input
-              type="text"
-              class="form-control"
-              id="exampleInputPassword1"
-            />
+          <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <div claas="move">
+              <input
+                type="text"
+                class="form-control"
+                id="Location"
+                placeholder="Location"
+              />
+            </div>
           </div>
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label"
-            >Description</label
-          >
+          <div class="mb-3">
+            <label for="Photo" class="form-label">Photo</label>
+            <div claas="move">
+              <input
+                type="text"
+                class="form-control"
+                id="Photo"
+                placeholder=""
+              />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Description</label
+            >
 
-          <input type="text" class="form-control" id="exampleInputPassword1" />
+            <input
+              type="text"
+              class="form-control"
+              id="Description"
+              placeholder="Description"
+            />
+          </div>
+          <input type="submit" value="submit" />
         </div>
-        <button type="submit" class="btn btn-primary">add to list</button>
-      </div>
-    </form>
-   
+      </form>
+      <div id="toadd"></div>
+    </div>
     <br />
 
     <script
@@ -78,5 +88,6 @@
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
       crossorigin="anonymous"
     ></script>
+    <script src="dest.js"></script>
   </body>
 </html>
