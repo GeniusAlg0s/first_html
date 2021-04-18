@@ -58,13 +58,15 @@ img {
   padding: 8px;
 }
 .daTop {
-  padding-top: 15px;
+  /* padding-top: 18px; */
   display: flex;
-  flex-wrap: wrap;
-  justify-content: right;
+  /* flex-wrap: wrap; */
+  justify-content: left;
 }
 .height {
-  height: 15px;
+  flex-wrap: wrap;
+  height: auto;
+  /* padding-bottom: 18px; */
 }
 #outer {
   width: 300px;
