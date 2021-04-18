@@ -17,6 +17,7 @@ nav {
   background-color: darkgray;
   justify-content: space-around;
   z-index: 110;
+  padding-bottom: 5px;
 }
 a {
   text-decoration: none;
@@ -37,7 +38,6 @@ a {
   padding-bottom: 10px;
 }
 img {
-  border-radius: 65%;
   border: solid 3px darkblue;
 }
 .left {
@@ -45,12 +45,22 @@ img {
 }
 .middle {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  justify-content: space-evenly;
   padding: 5px;
 }
-#inner {
+.inner {
   /* border: black solid 3px; */
-  width: 35%;
+  width: 300px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 8px;
+}
+.height {
+  height: 15px;
+}
+#outer {
+  width: 300px;
+  border: black solid 3px;
 }
