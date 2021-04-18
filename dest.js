@@ -7,7 +7,7 @@ function remDel() {
 }
 
 //edit event to alert and change card
-function editCard() {
+function editCard(evt) {
   const newDestination = prompt("please enter destination name");
   const newLocation = prompt("please enter location name");
   let newOto = prompt("please enter img url");
@@ -16,10 +16,9 @@ function editCard() {
   document.getElementById("dandl").innerHTML =
     "you now chose" + newDestination + " - " + newLocation;
   if (newOto.length <= 0) {
-    pic = man;
+    document.getElementById("defualt").setAttribute("src", img.src);
   } else {
-    photo.src = newOto;
-    pic = man2;
+    document.getElementById("defualt").setAttribute("src", newOto);
   }
   document.getElementById("des").innerHTML = newdescription;
 }
@@ -44,16 +43,17 @@ function handleSum(evt) {
   let man2 = `<img id="given" src="${photo.src}" class="img-thumbnail">`;
 
   let pic;
-
-  const contains = document.getElementById("toadd");
-  const myDiv = document.createElement("div");
   if (oto.length === 0) {
     pic = man;
   } else {
     pic = man2;
   }
+
+  const contains = document.getElementById("toadd");
+  const myDiv = document.createElement("div");
+
   myDiv.innerHTML = `
-  <div id="outer">
+  <div id="outer" >
   ${pic}
   <hr>
   <div class="inner height">
