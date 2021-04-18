@@ -58,7 +58,9 @@ function handleSum(evt) {
   <hr>
   <div class="inner height">
   <p id="dandl">you chose ${destination} - located in ${location}</p>
-  <p id="des">${description}</p>
+  </div>
+  <div class="text-muted daTop">
+  <p id="des">Description: ${description}</p>
   </div>
   <hr>
   <div class="inner">

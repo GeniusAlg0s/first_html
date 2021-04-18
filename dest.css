@@ -57,6 +57,12 @@ img {
   justify-content: space-evenly;
   padding: 8px;
 }
+.daTop {
+  padding-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: right;
+}
 .height {
   height: 15px;
 }
