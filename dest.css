@@ -39,6 +39,7 @@ a {
 }
 img {
   border: solid 3px darkblue;
+  width: 100%;
 }
 .left {
   display: inline-grid;

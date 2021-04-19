@@ -36,8 +36,10 @@ function handleSum(evt) {
 
   ///default img
   let img = document.createElement("img");
+  // img.src =
+  //   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfEjaLquQ38Bmm-2W_Pgu1q6PXB7sC32impg&usqp=CAU";
   img.src =
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfEjaLquQ38Bmm-2W_Pgu1q6PXB7sC32impg&usqp=CAU";
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR11Te4EqTBLfu_84WL9o_mJ7ZPlXyxRmsQAg&usqp=CAU";
   let man = `<img id="defualt" src="${img.src}" class="img-thumbnail">`;
   //given image
   photo = document.createElement("img");
