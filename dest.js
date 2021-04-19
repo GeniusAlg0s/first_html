@@ -43,7 +43,7 @@ function handleSum(evt) {
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR11Te4EqTBLfu_84WL9o_mJ7ZPlXyxRmsQAg&usqp=CAU";
   let man = `<img id="defualt" src="${img.src}" class="img-thumbnail">`;
 
-  //ask nelly
+  // //ask nelly
   // img.setAttribute("id", "defualt");
   // img.setAttribute("class", "img-thumbnail");
 
