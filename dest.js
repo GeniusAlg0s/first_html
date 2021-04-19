@@ -41,10 +41,14 @@ function handleSum(evt) {
   img.src =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR11Te4EqTBLfu_84WL9o_mJ7ZPlXyxRmsQAg&usqp=CAU";
   let man = `<img id="defualt" src="${img.src}" class="img-thumbnail">`;
+
+
   //given image
   photo = document.createElement("img");
   photo.src = evt.target.Photo.value;
   let man2 = `<img id="given" src="${photo.src}" class="img-thumbnail">`;
+
+
   //logic for default img if empty text
   let pic;
   if (oto.length === 0) {
@@ -73,8 +77,10 @@ function handleSum(evt) {
   </div>
   </div>
   `;
+
   //append child{html element}
   contains.appendChild(myDiv);
+  
   //add listener to html elements buttons on click
   document.getElementById("edit").addEventListener("click", editCard);
   document.getElementById("remove").addEventListener("click", remDel);
