@@ -8,7 +8,7 @@ function remDel() {
 }
 
 //edit event to prompt and change card
-function editCard(evt) {
+function editCard() {
   const newDestination = prompt("please enter destination name");
   const newLocation = prompt("please enter location name");
   let newOto = prompt("please enter img url");
@@ -35,19 +35,26 @@ function handleSum(evt) {
   let description = evt.target.Description.value;
 
   ///default img
-  let img = document.createElement("img");
+  // <img src="" class="newest" />
+  let img = document.createElement("img"); // <img />
   // img.src =
   //   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfEjaLquQ38Bmm-2W_Pgu1q6PXB7sC32impg&usqp=CAU";
   img.src =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR11Te4EqTBLfu_84WL9o_mJ7ZPlXyxRmsQAg&usqp=CAU";
   let man = `<img id="defualt" src="${img.src}" class="img-thumbnail">`;
 
+  //ask nelly
+  // img.setAttribute("id", "defualt");
+  // img.setAttribute("class", "img-thumbnail");
 
   //given image
-  photo = document.createElement("img");
+  let photo = document.createElement("img");
   photo.src = evt.target.Photo.value;
   let man2 = `<img id="given" src="${photo.src}" class="img-thumbnail">`;
 
+  //ask nelly
+  // photo.setAttribute("id", "given");
+  // photo.setAttribute("class", "img-thumbnail");
 
   //logic for default img if empty text
   let pic;
@@ -80,7 +87,7 @@ function handleSum(evt) {
 
   //append child{html element}
   contains.appendChild(myDiv);
-  
+
   //add listener to html elements buttons on click
   document.getElementById("edit").addEventListener("click", editCard);
   document.getElementById("remove").addEventListener("click", remDel);
