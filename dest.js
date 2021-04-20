@@ -5,8 +5,11 @@ document.getElementById("info").addEventListener("submit", handleSum);
 
 function getApi() {
   let destination = document.getElementById("dest").value;
+  if (destination.length <= 0) {
+    destination = "cat";
+  }
   let API = `https://api.unsplash.com/search/photos?client_id=O1CcoG842k4QrdW3z9oSbnxL9wOPaMOx0LXopCuZ8us&query=${destination}`;
-  // console.log(API);
+  
   fetch(API)
     .then((resp) => resp.json())
     .then((data) => display(data));
@@ -16,18 +19,18 @@ function display(data) {
   let destination = document.getElementById("dest").value;
   //take dest and sent to get api function
   let location = document.getElementById("Location").innerHTML;
-  // let oto = document.getElementById("Photo").innerHTML;
+  
   let description = document.getElementById("Description").innerHTML;
-  // console.log(data.results);
+  
   let unsplash = data.results[0].urls.small;
 
-  // unsplash = `https://api.unsplash.com/search/photos?client_id=O1CcoG842k4QrdW3z9oSbnxL9wOPaMOx0LXopCuZ8us&query=${destination}`;
+  
 
   ///default img
-  // <img src="" class="newest" />
+  
+
   let img = document.createElement("img"); // <img />
-  // img.src =
-  //   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfEjaLquQ38Bmm-2W_Pgu1q6PXB7sC32impg&usqp=CAU";
+  
   img.src =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR11Te4EqTBLfu_84WL9o_mJ7ZPlXyxRmsQAg&usqp=CAU";
   let man = `<img id="defualt" src="${img.src}" class="img-thumbnail">`;
@@ -36,7 +39,7 @@ function display(data) {
   contains.innerHTML = "";
   /// html element to be displayed
   contains.innerHTML += `<div id="outer" >
-  <img src=${unsplash}>
+  <img id="defualt" src=${unsplash}>
   <hr>
   <div class="inner height">
   <p id="dandl">you chose ${destination} - located in ${location}</p>
@@ -50,6 +53,8 @@ function display(data) {
   </div>
   </div>
   `;
+  document.getElementById("edit").addEventListener("click", editCard);
+  document.getElementById("remove").addEventListener("click", remDel);
 }
 
 //delete card
@@ -62,15 +67,31 @@ function remDel() {
 function editCard() {
   const newDestination = prompt("please enter destination name");
   const newLocation = prompt("please enter location name");
-  let newOto = prompt("please enter img url");
   const newdescription = prompt("please enter description");
 
-  document.getElementById("dandl").innerHTML =
-    "you now chose" + newDestination + " - " + newLocation;
-  if (newOto.length <= 0) {
-    document.getElementById("defualt").setAttribute("src", img.src);
+  let API = `https://api.unsplash.com/search/photos?client_id=O1CcoG842k4QrdW3z9oSbnxL9wOPaMOx0LXopCuZ8us&query=cat`;
+  // console.log(API);
+  fetch(API)
+    .then((resp) => resp.json())
+    .then((data) => display(data));
+
+  let API2 = `https://api.unsplash.com/search/photos?client_id=O1CcoG842k4QrdW3z9oSbnxL9wOPaMOx0LXopCuZ8us&query=${newDestination}`;
+  // console.log(API);
+  fetch(API2)
+    .then((resp) => resp.json())
+    .then((data2) => display(data2));
+
+  let landing = data.results[0].urls.small;
+  let landing2 = data2.results[0].urls.small;
+
+  if (newDestination.length <= 0) {
+    document.getElementById("defualt").src = landing;
+    document.getElementById("dandl").innerHTML =
+      "you now chose" + newDestination + " - " + newLocation;
   } else {
-    document.getElementById("defualt").setAttribute("src", newOto);
+    document.getElementById("defualt").src = landing2;
+    document.getElementById("dandl").innerHTML =
+      "you now chose" + newDestination + " - " + newLocation;
   }
   document.getElementById("des").innerHTML = newdescription;
 }
