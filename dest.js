@@ -23,11 +23,7 @@ function display(data) {
   let description = document.getElementById("Description").innerHTML;
   
   let unsplash = data.results[0].urls.small;
-
-  
-
   ///default img
-  
 
   let img = document.createElement("img"); // <img />
   
