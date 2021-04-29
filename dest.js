@@ -26,10 +26,12 @@ function displayDest(data) {
 
     let edit = document.createElement("button");
     edit.setAttribute("class", "btn btn-warning");
+    edit.setAttribute("id", "edit");
     edit.innerHTML = "edit";
 
     let remove = document.createElement("button");
     remove.setAttribute("class", "btn btn-danger");
+    remove.setAttribute("id", "remove");
     remove.innerHTML = "remove";
 
     innerOneContainer.setAttribute("class", "inner height");
@@ -59,25 +61,33 @@ function displayDest(data) {
 //add event listner to form on submit
 document.getElementById("info").addEventListener("submit", handleSum);
 
-function getApi() {
-  let destination = document.getElementById("dest").value;
-  if (destination.length <= 0) {
-    destination = "cat";
-  }
-  let API = `https://api.unsplash.com/search/photos?client_id=O1CcoG842k4QrdW3z9oSbnxL9wOPaMOx0LXopCuZ8us&query=${destination}`;
+// function getApi() {
+//   let destination = document.getElementById("dest").value;
+//   if (destination.length <= 0) {
+//     destination = "cat";
+//   }
+//   let API = `https://api.unsplash.com/search/photos?client_id=O1CcoG842k4QrdW3z9oSbnxL9wOPaMOx0LXopCuZ8us&query=${destination}`;
 
-  fetch(API)
-    .then((resp) => resp.json())
-    .then((data) => display(data));
-}
+//   fetch(API)
+//     .then((resp) => resp.json())
+//     .then((data) => display(data));
+// }
 function display(data) {
   //from handle function
-  let destination = document.getElementById("dest").value;
+  for (let i = 0; i < data.length; i++) {
+  let destinationInpt = document.getElementById("dest").value;
   //take dest and sent to get api function
-  let location = document.getElementById("Location").innerHTML;
+  let locationInput = document.getElementById("Location").innerHTML;
 
-  let description = document.getElementById("Description").innerHTML;
+  let descriptionInput = document.getElementById("Description").innerHTML;
 
+
+    let name = data[i].name;
+    let location = data[i].location;
+    let description = data[i].description;
+    let nphoto = data[i].photo;
+    console.log(data[i].name);
+  }
   let unsplash = data.results[0].urls.small;
   ///default img
 
@@ -116,25 +126,28 @@ function remDel() {
 }
 
 //edit event to prompt and change card
-function editCard() {
+function editCard(data) {
   const newDestination = prompt("please enter destination name");
   const newLocation = prompt("please enter location name");
   const newdescription = prompt("please enter description");
 
-  let API = `https://api.unsplash.com/search/photos?client_id=O1CcoG842k4QrdW3z9oSbnxL9wOPaMOx0LXopCuZ8us&query=cat`;
-  // console.log(API);
-  fetch(API)
-    .then((resp) => resp.json())
-    .then((data) => display(data));
+  // let API = `https://api.unsplash.com/search/photos?client_id=O1CcoG842k4QrdW3z9oSbnxL9wOPaMOx0LXopCuZ8us&query=cat`;
+  // // console.log(API);
+  // fetch(API)
+  //   .then((resp) => resp.json())
+  //   .then((data) => display(data));
 
-  let API2 = `https://api.unsplash.com/search/photos?client_id=O1CcoG842k4QrdW3z9oSbnxL9wOPaMOx0LXopCuZ8us&query=${newDestination}`;
-  // console.log(API);
-  fetch(API2)
-    .then((resp) => resp.json())
-    .then((data2) => display(data2));
+  // let API2 = `https://api.unsplash.com/search/photos?client_id=O1CcoG842k4QrdW3z9oSbnxL9wOPaMOx0LXopCuZ8us&query=${newDestination}`;
+  // // console.log(API);
+  // fetch(API2)
+  //   .then((resp) => resp.json())
+  //   .then((data2) => display(data2));
+for(let i =0; i < data.length; i++){
 
-  let landing = data.results[0].urls.small;
-  let landing2 = data2.results[0].urls.small;
+// if()
+  //old
+  // let landing = data.results[0].urls.small;
+  // let landing2 = data2.results[0].urls.small;
 
   if (newDestination.length <= 0) {
     document.getElementById("defualt").src = landing;
@@ -146,6 +159,7 @@ function editCard() {
       "you now chose" + newDestination + " - " + newLocation;
   }
   document.getElementById("des").innerHTML = newdescription;
+}
 }
 
 //sumbt event to display card
